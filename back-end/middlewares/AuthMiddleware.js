@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const Role = require('../models/Role')
 const jwt = require('jsonwebtoken')
+
 const asyncHandler = require('express-async-handler');
 const { findById, findOne } = require('../models/User');
 
@@ -12,9 +13,8 @@ const authMiddleware = asyncHandler(async(req,res,next)=>{
             if(token){
                 const decode = jwt.verify(token,process.env.SECRET_TOCKEN)
                
-                const user = await User.findById(decode?.id)
+                const user = await User.findById(decode?._id)
                 req.user= user ;
-                 console.log(req.user)
                 next()
             }
         } catch (error) {
@@ -26,17 +26,17 @@ const authMiddleware = asyncHandler(async(req,res,next)=>{
     
 })
 const isAdmin = asyncHandler(async(req,res,next)=>{
-    const email = req.user
+    const {email} = req.user
     console.log(email)
     const isAdmin = await User.findOne({email})
-    const admin_role = await Role.findOne({name: 'manager'})
+    const admin_role = await Role.findOne({name:'manager'})
     if(isAdmin?.role_id !== admin_role?._id){
-        throw new Error("you are not admin")
+        next(new Error("you are not admin"))
+        console.log("hzdh")
     }
     else{
         next()
     }
-
 })
 module.exports = {
     authMiddleware,
