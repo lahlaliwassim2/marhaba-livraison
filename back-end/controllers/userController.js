@@ -32,7 +32,7 @@ const getAllUser = asyncHandler(async(req,res)=>{
             })
         }
     } catch (error) {
-        throw new Error(error)
+        throw new Error("error")
     }
 })
 
