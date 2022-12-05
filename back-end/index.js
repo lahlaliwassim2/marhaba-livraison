@@ -11,7 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 // Route
 const authRoute = require('./routes/authRoutes') 
+const userRoute = require('./routes/userRoutes')
 app.use('/api/auth', authRoute)
+app.use('/api/user',userRoute)
 app.use(require("./routes/CategorieRoute"));
 
 
