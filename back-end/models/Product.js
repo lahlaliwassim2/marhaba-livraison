@@ -16,7 +16,7 @@ const productSchema = mongoose.Schema(
         },
         image: {
             type: String,
-            required: [true, 'Please add a image'],
+            default: "default.jpg",
         },
         cat_id: {
             type: Number,
