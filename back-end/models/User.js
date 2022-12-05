@@ -19,25 +19,22 @@ const userSchema = mongoose.Schema(
             type: Number,
             required: [true, 'Please add an phone Number']
         },   
-        role_id: 
+        role_id: [
+                {
+                  type: mongoose.Schema.Types.ObjectId,
+                  ref: "Role"
+                }
+              ],
+        ville_id:
             {
-                type: String, 
-                enum: ['User', 'Admin', 'Livreur'],
-                default: 'User'
-            },
-            ville_id: 
-            {
-                type: Number, 
-
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Ville",
             },
         status: {
                 type: String, 
                 enum: ['Pending', 'Active','Banned'],
                 default: 'Pending'
-              },
-        confirmationCode: { 
-                type: String, 
-                unique: true },
+              }
     },
     {
         timestamps: true,

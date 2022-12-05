@@ -37,7 +37,8 @@ const orderSchema = mongoose.Schema(
               },
         tottal_price: { 
                 type: Number, 
-                unique: true },
+                unique: true
+            },
     },
     {
         timestamps: true,
