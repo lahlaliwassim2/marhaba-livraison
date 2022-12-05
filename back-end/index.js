@@ -12,6 +12,8 @@ app.use(express.urlencoded({extended:true}))
 // Route
 const authRoute = require('./routes/authRoutes') 
 app.use('/api/auth', authRoute)
+app.use(require("./routes/CategorieRoute"));
+
 
 const PORT = process.env.PORT || 4000;
 

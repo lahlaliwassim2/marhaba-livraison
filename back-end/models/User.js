@@ -27,8 +27,8 @@ const userSchema = mongoose.Schema(
               ],
         ville_id:
             {
-                type: Number, 
-
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Ville",
             },
         status: {
                 type: String, 
