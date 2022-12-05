@@ -6,7 +6,6 @@ const roleSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please add a name'],
         },
-    
     },
     {
         timestamps: true,
