@@ -34,11 +34,7 @@ const userSchema = mongoose.Schema(
                 type: String, 
                 enum: ['Pending', 'Active','Banned'],
                 default: 'Pending'
-              },
-        // confirmationCode: {
-        //         type: String, 
-        //         unique: true
-        //     },
+              }
     },
     {
         timestamps: true,
