@@ -13,6 +13,7 @@ app.use(express.urlencoded({extended:true}))
 const authRoute = require('./routes/authRoutes') 
 app.use('/api/auth', authRoute)
 app.use(require("./routes/CategorieRoute"));
+app.use(require('./routes/villeRoute'))
 
 
 const PORT = process.env.PORT || 4000;
