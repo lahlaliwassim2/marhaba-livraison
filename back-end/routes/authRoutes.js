@@ -2,7 +2,6 @@ const route = require('express').Router()
 const authController = require('../controllers/authControllers')
 const tryCatch =require('../middlewares/tryCatch')
 const errorHandller =require('../middlewares/errorHandller')
-const { Router } = require('express')
 
 route.post('/register' , tryCatch(authController.register))
 route.post('/login' , tryCatch(authController.login))
