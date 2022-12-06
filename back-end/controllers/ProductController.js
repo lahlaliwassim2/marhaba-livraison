@@ -6,6 +6,7 @@ const AddNewProduct = async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
+
     cat_id: req.body.categorie,
   };
 
@@ -18,7 +19,6 @@ const AddNewProduct = async (req, res) => {
     throw new Error(error);
   }
 };
-
 
 const DeleteProduct = async (req, res) => {
   const { id } = req.params;
@@ -33,6 +33,7 @@ const DeleteProduct = async (req, res) => {
 const UpdateProduct = async (req, res) => {
     
 };
+
 
 module.exports = {
   AddNewProduct,

@@ -1,7 +1,5 @@
 const Categorie = require("../models/Categorie");
 
-
-
 const AddNewCategorie = async (req, res) => {
   const { name } = req.body;
   const ifCategorieExist = await Categorie.findOne({name});
