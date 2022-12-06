@@ -55,7 +55,7 @@ const verifyEmail = async (req, res) => {
     { $set: { status: "Active" } }
   );
   if (!verify_email) throw Error("Error");
-  res.send("Your acount is Actived oooooooo");
+  res.send("Your acount is Actived");
 };
 
 const resetPassword = async (req, res) => {
