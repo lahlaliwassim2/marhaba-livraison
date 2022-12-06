@@ -18,6 +18,7 @@ app.use('/api/auth', authRoute)
 app.use('/api/user',userRoute)
 app.use('/api/admin',adminRoute)
 app.use(require("./routes/CategorieRoute"));
+app.use(require("./routes/ProductRoutes"));
 
 
 const PORT = process.env.PORT || 4000;
