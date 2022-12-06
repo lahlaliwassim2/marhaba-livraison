@@ -12,17 +12,8 @@ const getAllUser = asyncHandler(async(req,res)=>{
     }
 })
 
-const bindUser = asyncHandler(async(req,res)=>{
-    const {id} = req.params
-    try {
-        
-    } catch (error) {
-        
-    }
-})
-
-//Bind User By Id
-const binUser = asyncHandler(async(req,res)=>{
+//Block User By Id
+const blockUser = asyncHandler(async(req,res)=>{
     const {id} = req.params
     console.log(id)
     try {
@@ -43,7 +34,32 @@ const binUser = asyncHandler(async(req,res)=>{
         throw new Error(error)
     }
 })
+
+
+//unBlock User By id
+const unblockUser = asyncHandler(async(req,res)=>{
+    const {id} = req.params
+    console.log(id)
+    try {
+        const unBlock = await User.findByIdAndUpdate(
+            id,
+            {
+                 status:"Active"
+            },
+            {
+                new: true
+            }
+        )
+        if(unBlock) res.json({
+            message:"User is debolcked"
+        })
+        else throw new Error('no user found')
+    } catch (error) {
+        throw new Error(error)
+    }
+})
 module.exports = {
     getAllUser,
-    binUser
+    blockUser,
+    unblockUser
 }
