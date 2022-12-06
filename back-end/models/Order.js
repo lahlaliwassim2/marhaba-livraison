@@ -3,11 +3,13 @@ const mongoose = require('mongoose')
 const orderSchema = mongoose.Schema(
     {
         user_id: {
-            type: Number,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: User,
             required: [true, 'Please add a name'],
         },
         product_id: {
-            type: Number,
+            type: mongoose.Schema.Types.ObjectId,
+            ref : Product,
             required: [true, 'Please add an email'],
             unique: true,
         },
@@ -22,8 +24,10 @@ const orderSchema = mongoose.Schema(
    
         ville_id: 
             {
-                type: Number, 
+                type: mongoose.Schema.Types.ObjectId,
+                ref : Ville ,
                 required: [true]
+                
 
             },
         status: {

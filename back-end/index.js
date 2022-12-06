@@ -15,6 +15,7 @@ const userRoute = require('./routes/userRoutes')
 app.use('/api/auth', authRoute)
 app.use('/api/user',userRoute)
 app.use(require("./routes/CategorieRoute"));
+app.use(require('./routes/villeRoute'))
 
 
 const PORT = process.env.PORT || 4000;
