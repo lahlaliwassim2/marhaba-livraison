@@ -23,7 +23,7 @@ const DeleteProduct = async (req, res) => {
   const { id } = req.params;
   try {
     await Product.findOneAndDelete({ _id: id });
-    res.status(200).json({code: 200, message: 'Post deleted'})
+    res.status(200).json({code: 200, message: 'Product deleted'})
   } catch (error) {
     throw new Error(error)
   }
