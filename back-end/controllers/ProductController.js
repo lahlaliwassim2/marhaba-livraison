@@ -1,7 +1,9 @@
 const Product = require("../models/Product");
-const upload = require("../utils/imageUploader");
 const Categorie = require('../models/Categorie')
 const asyncHandler = require('express-async-handler')
+
+const upload = require("../utils/imageUploader");
+
 
 const AddNewProduct = async (req, res) => {
   const newProduct = {
@@ -32,9 +34,11 @@ const DeleteProduct = async (req, res) => {
   }
 };
 
+
 const UpdateProduct = async (req, res) => {
     
 };
+
 
 const findAllProduct = asyncHandler(async(req,res)=>{
       const findAllProduct = await Product.find().populate("Categorie")
