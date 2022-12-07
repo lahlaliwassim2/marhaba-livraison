@@ -23,6 +23,7 @@ const productSchema = mongoose.Schema(
             required: [true, 'Please add a categorie '],
         },
         
+        
     },
     {
         timestamps: true,

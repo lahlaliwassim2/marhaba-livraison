@@ -5,7 +5,7 @@ const validateMongoDbId = require('../utils/ValidationMongoId')
 //Get One User
 const getOneUser = asyncHandler(async(req,res)=>{
     const id = req.params
-    // validateMongoDbId(id)
+    validateMongoDbId(id)
 
     try {
         const getUser = await User.findOne({id})
