@@ -1,14 +1,19 @@
 const Product = require("../models/Product");
-const upload = require("../utils/imageUploader");
+const upload = require('../utils/imageUploader')
+// const { body, validationResult } = require('express-validator');
 
-const AddNewProduct = async (req, res) => {
+
+const AddNewProduct = async (req, res ) => {
+
   const newProduct = {
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
     cat_id: req.body.categorie,
+    image: req.files[0].filename
   };
-
+  
+  console.log();
   try {
     const insertProduct = await Product.create(newProduct);
     if (insertProduct) {
@@ -18,7 +23,6 @@ const AddNewProduct = async (req, res) => {
     throw new Error(error);
   }
 };
-
 
 const DeleteProduct = async (req, res) => {
   const { id } = req.params;
@@ -31,7 +35,7 @@ const DeleteProduct = async (req, res) => {
 };
 
 const UpdateProduct = async (req, res) => {
-    
+  
 };
 
 module.exports = {
@@ -39,3 +43,4 @@ module.exports = {
   DeleteProduct,
   UpdateProduct,
 };
+
