@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const User = require('../models/User')
 const { find, findOne } = require('../models/User')
+
 //Get One User
 const getOneUser = asyncHandler(async(req,res)=>{
     const {id}= req.params
@@ -12,18 +13,29 @@ const getOneUser = asyncHandler(async(req,res)=>{
         throw new Error(error)
     }
 })
-//Get All User
-const getAllUser = asyncHandler(async(req,res)=>{
+
+//Update User 
+const updateUser = asyncHandler(async(req,res)=>{
+    const {id} =req.user
+    console.log(id)
     try {
-        const getUsers = await User.find()
-        if(!getUsers)throw new Error("no user found")
-        else res.json({getUsers})
+        const updateUser = await User.findByIdAndUpdate(id,
+            {
+                name:req?.body?.name,
+                email:req?.body?.email,
+                phone:req?.body?.phone,
+            },
+            {
+                new:true
+            }
+            )
+            if(updateUser) res.json({updateUser})
+            else throw new Error("no User fouand")
     } catch (error) {
-        throw new Error("error")
+        throw new Error(error)
     }
 })
-//Update User 
 module.exports = {
     getOneUser,
-    getAllUser
+    updateUser
 }
