@@ -12,11 +12,15 @@ app.use(express.urlencoded({extended:true}))
 // Route
 const authRoute = require('./routes/authRoutes') 
 const userRoute = require('./routes/userRoutes')
-const villeRoute = require('./routes/villeRoutes')
+const adminRoute = require('./routes/adminRouter');
+const villeRoute = require('./routes/villeRoutes');
+
 app.use('/api/auth', authRoute)
 app.use('/api/user',userRoute)
-app.use(require('./routes/villeRoute'))
+app.use('/api/admin',adminRoute)
+app.use('/api/admin',villeRoute)
 app.use(require("./routes/CategorieRoute"));
+app.use(require("./routes/ProductRoutes"));
 
 
 const PORT = process.env.PORT || 4000;

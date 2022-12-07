@@ -34,12 +34,10 @@ const main = (method,user)=> {
             user:'khadijach896@gmail.com',
             pass:process.env.MAILER,
         },
-
-
     })
 
     let info ={
-        from: '"Khadija ✨" <khadijach896@gmail.com>',
+        from: '"Marhaba ✨" <khadijach896@gmail.com>',
         to: user.email,
         subject: subject,
         html:html,
