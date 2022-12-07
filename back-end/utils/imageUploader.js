@@ -6,22 +6,24 @@ const storage = multer.diskStorage({
     callback(null, "images");
   },
   filename: (req, file, callback) => {
-    callback(null, Date.now() + path.extname(file.originalname));
+    const newImageName  = Date.now() + path.extname(file.originalname);
+    callback(null, newImageName);
+    console.log(newImageName);
   },
 });
 
 module.exports = multer({
   storage: storage,
-  fileFilter: (req, file, cb) => {
+  fileFilter: (req, file, callback) => {
     if (
       file.mimetype == "image/png" ||
       file.mimetype == "image/jpg" ||
       file.mimetype == "image/jpeg"
     ) {
-      cb(null, true);
+      callback(null, true);
     } else {
-      cb(null, false);
-      return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
+      callback(null, false);
+      return callback(new Error("Only .png, .jpg and .jpeg format allowed!"));
     }
   },
 });
