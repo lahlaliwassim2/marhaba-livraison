@@ -24,6 +24,7 @@ app.use('/api/categorie',categorieRoute)
 
 
 app.use(require("./routes/CategorieRoute"));
+app.use(require("./routes/ProductRoutes"));
 
 
 const PORT = process.env.PORT || 4000;
