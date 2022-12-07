@@ -15,7 +15,7 @@ const userRoute = require('./routes/userRoutes')
 const villeRoute = require('./routes/villeRoutes')
 app.use('/api/auth', authRoute)
 app.use('/api/user',userRoute)
-app.use('/api/ville', villeRoute)
+app.use(require('./routes/villeRoute'))
 app.use(require("./routes/CategorieRoute"));
 
 
