@@ -3,6 +3,6 @@ const villeRoute = require('express').Router()
 const  ville = require('../controllers/villeControllers')
 
 
-villeRoute.post('/villeAdd', ville.addVille)
+villeRoute.post('/addVille', ville.addVille)
 
 module.exports = villeRoute;
