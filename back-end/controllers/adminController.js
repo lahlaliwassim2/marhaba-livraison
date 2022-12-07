@@ -11,7 +11,6 @@ const getAllUser = asyncHandler(async(req,res)=>{
         throw new Error("error")
     }
 })
-
 //Block User By Id
 const blockUser = asyncHandler(async(req,res)=>{
     const {id} = req.params
@@ -34,8 +33,6 @@ const blockUser = asyncHandler(async(req,res)=>{
         throw new Error(error)
     }
 })
-
-
 //unBlock User By id
 const unblockUser = asyncHandler(async(req,res)=>{
     const {id} = req.params
@@ -58,6 +55,7 @@ const unblockUser = asyncHandler(async(req,res)=>{
         throw new Error(error)
     }
 })
+
 module.exports = {
     getAllUser,
     blockUser,

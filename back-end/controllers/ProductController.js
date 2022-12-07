@@ -1,4 +1,6 @@
 const Product = require("../models/Product");
+const Categorie = require('../models/Categorie')
+// const asyncHandler = require('express-async-handler')
 
 const AddNewProduct = async (req, res) => {
   const newProduct = {
@@ -32,12 +34,25 @@ const DeleteProduct = async (req, res) => {
 };
 
 const UpdateProduct = async (req, res) =>{
-
+  
 }
+
+//get All Product 
+// const findAllProduct = asyncHandler(async(req,res)=>{
+//       const findAllProduct = await Product.find().populate("Categorie")
+//       try {
+//         if(findAllProduct) res.json({findAllProduct})
+//         else throw new Error("no product found")
+//       } catch (error) {
+//         throw new Error(error)
+//       }
+
+// })
 
 
 module.exports = {
   AddNewProduct,
   DeleteProduct,
   UpdateProduct,
+  // findAllProduct
 };
