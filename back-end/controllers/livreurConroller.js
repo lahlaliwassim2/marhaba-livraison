@@ -23,9 +23,9 @@ const Addlivreur = async (req,res) => {
          })
          if(!creatlivreur)
          throw Error('error')
-         await res.send({password:stockPassword})
+        //  await res.send({password:stockPassword})
          mailer.main('Addlivreur',creatlivreur)
-        //   await res.send(creatlivreur)
+          await res.send(creatlivreur)
          
 
          
