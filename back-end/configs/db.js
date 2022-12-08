@@ -9,3 +9,4 @@ connectDB
   .on("close", () => console.log("mongoose is disconnected"))
   .on("error", (error) => console.log(error));
 module.exports = connectDB;
+ 
