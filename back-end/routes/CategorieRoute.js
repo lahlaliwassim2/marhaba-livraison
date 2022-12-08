@@ -1,6 +1,7 @@
 const route = require('express').Router()
-const { AddNewCategorie } = require('../controllers/CategorieControlller')
+const { AddNewCategorie, DeleteCategorie } = require('../controllers/CategorieControlller')
 
 route.post('/addcategorie' , AddNewCategorie)
+route.delete('/deletecategorie',DeleteCategorie)
 
 module.exports = route

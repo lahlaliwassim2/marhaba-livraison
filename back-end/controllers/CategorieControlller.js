@@ -1,4 +1,5 @@
 const Categorie = require("../models/Categorie");
+const asyncHandler = require('express-async-handler')
 
 const AddNewCategorie = async (req, res) => {
   const { name } = req.body;
@@ -15,10 +16,21 @@ const AddNewCategorie = async (req, res) => {
       }
     }else res.json('categorie already exist')
   }
-
+  
 //   const DeleteCategorie = 
- 
+const DeleteCategorie = asyncHandler(async(req,res)=>{
+  const {id} = req.params
+  try {
+    const DeleteCategorie = await Categorie.findByIdAndDelete({id})
+    if(DeleteCategorie) res.json({
+      message:"categorie deleted"
+    })
+  } catch (error) {
+    throw new Error(error)
+  }
+})
 
 module.exports = {
   AddNewCategorie,
+  DeleteCategorie
 };
