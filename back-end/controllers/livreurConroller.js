@@ -3,7 +3,7 @@ const Role = require("../models/Role");
 const mailer = require("../middlewares/mailer");
 const bcrypt = require("bcryptjs");
 const Generate_password_secure = require('secure-random-password');
-
+const Storage = require('local-storage')
 const Addlivreur = async (req,res) => {
    const {body} = req
    if(!body.name || !body.email  || !body.phone) throw Error('Fill all filled')
@@ -23,7 +23,7 @@ const Addlivreur = async (req,res) => {
          })
          if(!creatlivreur)
          throw Error('error')
-        //  await res.send({password:stockPassword})
+         Storage('stockPassword',stockPassword)
          mailer.main('Addlivreur',creatlivreur)
           await res.send(creatlivreur)
          
