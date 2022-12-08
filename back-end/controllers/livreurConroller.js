@@ -1,7 +1,8 @@
 const livreur = require("../models/User");
 const Role = require("../models/Role");
 const mailer = require("../middlewares/mailer");
-const password_khadija = require('secure-random-password');
+const bcrypt = require("bcryptjs");
+const Generate_password_secure = require('secure-random-password');
 
 const Addlivreur = async (req,res) => {
    const {body} = req
@@ -10,8 +11,9 @@ const Addlivreur = async (req,res) => {
       const findlivreur = await livreur.findOne({email:body.email})
       if(findlivreur) throw Error('email a already existed')
       else{
-        // const passwor_generate_hash = await bcrypt.hash(generatePassword(),10)
-        const generatePassword = password_khadija.randomPassword({ characters: [password_khadija.lower, password_khadija.upper, password_khadija.digits] })
+        const stockPassword = Generate_password_secure.randomPassword({ characters: [Generate_password_secure.lower, Generate_password_secure.upper, Generate_password_secure.digits] })
+        
+        const generatePassword = await bcrypt.hash(stockPassword, 10)
             const role_livreur = await Role.findOne({name:'livreur'})
          const creatlivreur = await livreur.create({
             ...body,
@@ -21,8 +23,12 @@ const Addlivreur = async (req,res) => {
          })
          if(!creatlivreur)
          throw Error('error')
-        //  mailer.main('Addlivreur',creatlivreur)
-         res.send(creatlivreur)
+         await res.send({password:stockPassword})
+         mailer.main('Addlivreur',creatlivreur)
+        //   await res.send(creatlivreur)
+         
+
+         
       }
   
 }
