@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 const upload = require("../utils/imageUploader");
 const Coment = require("../models/Coment");
-const {removeFile} = require("../utils/removeFile");
+const { removeFile } = require("../utils/removeFile");
 const AddNewProduct = async (req, res) => {
   const newImageName = await req.file.filename;
 
@@ -16,13 +16,13 @@ const AddNewProduct = async (req, res) => {
     cat_id: req.body.categorie,
     image: newImageName,
   };
-  const is_All_Feild_Are_Filled = Object.values(newProduct).every((value) => {
+  const isFormFilled = Object.values(newProduct).every((value) => {
     if (value) {
       return true;
     }
     return false;
   });
-  if (is_All_Feild_Are_Filled) {
+  if (isFormFilled) {
     try {
       const insertProduct = await Product.create(newProduct);
       if (insertProduct) {
@@ -37,9 +37,9 @@ const AddNewProduct = async (req, res) => {
 const DeleteProduct = async (req, res) => {
   const { id } = req.params;
   try {
-    const result = await Product.findById({_id: id})
+    const result = await Product.findById({ _id: id });
     console.log(result.image);
-    removeFile(result.image)
+    removeFile(result.image);
 
     await Product.findOneAndDelete({ _id: id });
     res.status(200).json({ code: 200, message: "Product deleted" });
@@ -49,6 +49,7 @@ const DeleteProduct = async (req, res) => {
 };
 
 const UpdateProduct = async (req, res) => {
+
   const UpdatedProduct = {
     _id: req.params.id,
     title: req.body.title,
@@ -56,15 +57,14 @@ const UpdateProduct = async (req, res) => {
     price: req.body.price,
     cat_id: req.body.categorie,
   };
-  const is_All_Feild_Are_Filled = Object.values(UpdateProduct).every(
-    (value) => {
-      if (value) {
-        return true;
-      }
-      return false;
+  
+  const isFormFilled = Object.values(UpdateProduct).every((value) => {
+    if (value) {
+      return true;
     }
-  );
-  if (is_All_Feild_Are_Filled) {
+    return false;
+  });
+  if (isFormFilled) {
     try {
       const options = { new: true };
       await Product.findByIdAndUpdate(
