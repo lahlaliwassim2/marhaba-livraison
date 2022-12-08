@@ -8,22 +8,32 @@ const Coment = require("../models/Coment");
 
 
 const AddNewProduct = async (req, res) => {
+  const newImageName = await req.file.filename;
+
   const newProduct = {
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
     Image:req.body.Image,
     cat_id: req.body.categorie,
+    image: newImageName,
   };
-
-  try {
-    const insertProduct = await Product.create(newProduct);
-    if (insertProduct) {
-      res.status(201).json("new product was added ");
-    } else res.json("something wrong");
-  } catch (error) {
-    throw new Error(error);
-  }
+  const is_All_Feild_Are_Filled = Object.values(newProduct).every((value) => {
+    if (value) {
+      return true;
+    }
+    return false;
+  });
+  if (is_All_Feild_Are_Filled) {
+    try {
+      const insertProduct = await Product.create(newProduct);
+      if (insertProduct) {
+        res.status(201).json("new product was added ");
+      } else res.json("something wrong");
+    } catch (error) {
+      throw new Error(error);
+    }
+  } else res.json("Please fill All Fields");
 };
 
 const DeleteProduct = async (req, res) => {
@@ -38,8 +48,34 @@ const DeleteProduct = async (req, res) => {
 
 
 const UpdateProduct = async (req, res) => {
-    
+  const UpdatedProduct = {
+    _id: req.params.id,
+    title: req.body.title,
+    description: req.body.description,
+    price: req.body.price,
+    cat_id: req.body.categorie,
+  };
+  // console.log();
+  const options = { new: true };
+  // console.log(req.body);
+
+  await Product.findByIdAndUpdate(
+    { _id: req.params.id },
+    UpdatedProduct,
+    options
+  )
+    .then(() => {
+      res.status(201).json({
+        message: "Product updated successfully!",
+      });
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
 };
+
 
 
 const findAllProduct = asyncHandler(async(req,res)=>{
@@ -78,7 +114,7 @@ module.exports = {
   AddNewProduct,
   DeleteProduct,
   UpdateProduct,
-  /* It's a comment */
+  
   findAllProduct,
   comentProduct
 };
