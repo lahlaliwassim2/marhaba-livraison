@@ -59,7 +59,7 @@ const comentProduct = asyncHandler(async(req,res)=>{
   const user_id = req.user._id
   const product_id = req.params
   const contenu= req.body.content
-  console.log(contenu)
+  console.log(user_id)
   try {
       const addComent = await Coment.create({
         content:contenu,
