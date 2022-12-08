@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 
 const upload = require("../utils/imageUploader");
 const Coment = require("../models/Coment");
+const Avis = require("../models/Avis");
 
 
 const AddNewProduct = async (req, res) => {
@@ -89,6 +90,7 @@ const findAllProduct = asyncHandler(async(req,res)=>{
 
 })
 
+//Commentaire Product 
 const comentProduct = asyncHandler(async(req,res)=>{
   const user_id = req.user._id
   const product_id = req.params
@@ -109,6 +111,42 @@ const comentProduct = asyncHandler(async(req,res)=>{
   }
 })
 
+//AVIS PRODUCT 
+// const AvisProduct = asyncHandler(async(req,res)=>{
+//   const user_id = req.user._id
+//   const avis= false
+//   const product_id = req.params
+//   try {
+//     const AvisProduct = await Avis.create({
+//       avis:!avis,
+//       user_id:[mongoose.Types.ObjectId(user_id)],
+//       product_id:[mongoose.Types.ObjectId(product_id)]
+//     })
+//     if(AvisProduct) res.json({
+//       AvisProduct
+//     })
+//     else throw new Error("no avis added")
+//   } catch (error) {
+//     throw new Error(error)
+//   }
+// })
+
+const avisProduit = asyncHandler(async(req,res)=>{
+  const user_id = req.user;
+  const like = false
+  const product_id=req.params
+  try {
+    const avisProduit = await Avis.create({
+      avis:!like,
+        user_id:[mongoose.Types.ObjectId(user_id)],
+        product_id:[mongoose.Types.ObjectId(product_id)]
+    })
+    if(avisProduit) res.json(avisProduit)
+  } catch (error) {
+      throw new Error(error)  
+  }
+
+})
 
 module.exports = {
   AddNewProduct,
@@ -116,5 +154,6 @@ module.exports = {
   UpdateProduct,
   
   findAllProduct,
-  comentProduct
+  comentProduct,
+  avisProduit
 };
