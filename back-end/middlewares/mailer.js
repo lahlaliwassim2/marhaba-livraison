@@ -32,7 +32,7 @@ const main = (method,user)=> {
         <h4>Hi Livreur , doz t5dam ha 7na gadina lik masa2il dialk</h4>
         <h5>Your email :${user.email}</h5>
         <h5>Your password :${Storage('stockPassword')}</h5>
-        <p>You are receiving this because you (or someone else) have requested the reset of the password for your account. <span style='font-weight: bold;'>MARHABA</span>,Please click on the following link, or paste this into your browser to complete the process:</p>
+        <p>L5dma m3ana madmona  <span style='font-weight: bold;'>MARHABA</span>,Please click on the following link, or paste this into your browser to complete the process:</p>
         <a href="http://localhost:${process.env.PORT}/api/auth/veriyfy-forget-password/${token}">Active</a> 
       </div>`
     }
