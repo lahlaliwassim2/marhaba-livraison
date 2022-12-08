@@ -8,7 +8,7 @@ const { authMiddleware } = require('../middlewares/AuthMiddleware')
 route.post('/addproduct', upload.single('image'), AddNewProduct)
 
 route.delete('/deleteproduct/:id' , DeleteProduct)
-route.put('/updateproduct', UpdateProduct)
+route.patch('/updateproduct/:id', UpdateProduct)
 route.post('/comentproduct/:id',authMiddleware, comentProduct)
 
 // route.get('/getproducts',findAllProduct)

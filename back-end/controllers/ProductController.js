@@ -57,7 +57,7 @@ const UpdateProduct = async (req, res) => {
   };
   // console.log();
   const options = { new: true };
-  console.log(req.body);
+  // console.log(req.body);
 
   await Product.findByIdAndUpdate(
     { _id: req.params.id },
