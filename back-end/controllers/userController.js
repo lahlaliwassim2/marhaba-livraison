@@ -1,10 +1,12 @@
 const asyncHandler = require('express-async-handler')
 const User = require('../models/User')
-const { find, findOne } = require('../models/User')
+const validateMongoDbId = require('../utils/ValidationMongoId')
 
 //Get One User
 const getOneUser = asyncHandler(async(req,res)=>{
-    const {id}= req.params
+    const id = req.params
+    // validateMongoDbId(id)
+
     try {
         const getUser = await User.findOne({id})
             if(!getUser)throw new Error("no user found ")
