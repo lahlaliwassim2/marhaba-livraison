@@ -76,40 +76,23 @@ const comentProduct = asyncHandler(async(req,res)=>{
 })
 
 //AVIS PRODUCT 
-// const AvisProduct = asyncHandler(async(req,res)=>{
-//   const user_id = req.user._id
-//   const avis= false
-//   const product_id = req.params
-//   try {
-//     const AvisProduct = await Avis.create({
-//       avis:!avis,
-//       user_id:[mongoose.Types.ObjectId(user_id)],
-//       product_id:[mongoose.Types.ObjectId(product_id)]
-//     })
-//     if(AvisProduct) res.json({
-//       AvisProduct
-//     })
-//     else throw new Error("no avis added")
-//   } catch (error) {
-//     throw new Error(error)
-//   }
-// })
-
-const avisProduit = asyncHandler(async(req,res)=>{
-  const user_id = req.user;
-  const like = false
-  const product_id=req.params
+const AvisProduct = asyncHandler(async(req,res)=>{
+  const user_id = req.user._id
+  const avis= false
+  const product_id = req.params
   try {
-    const avisProduit = await Avis.create({
-      avis:!like,
-        user_id:[mongoose.Types.ObjectId(user_id)],
-        product_id:[mongoose.Types.ObjectId(product_id)]
+    const AvisProduct = await Avis.create({
+      avis:!avis,
+      user_id:[mongoose.Types.ObjectId(user_id)],
+      product_id:[mongoose.Types.ObjectId(product_id)]
     })
-    if(avisProduit) res.json(avisProduit)
+    if(AvisProduct) res.json({
+      AvisProduct
+    })
+    else throw new Error("no avis added")
   } catch (error) {
-      throw new Error(error)  
+    throw new Error(error)
   }
-
 })
 
 module.exports = {
@@ -119,5 +102,5 @@ module.exports = {
   /* It's a comment */
   findAllProduct,
   comentProduct,
-  avisProduit
+  AvisProduct
 };
