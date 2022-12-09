@@ -11,10 +11,12 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 // Route
 const authRoute = require('./routes/authRoutes') 
+
 const userRoute = require('./routes/userRoutes')
 const adminRoute = require('./routes/adminRouter')
 const categorieRoute = require('./routes/CategorieRoute')
 const productRouter = require('./routes/ProductRoutes')
+app.use(require("./routes/livreurRoute"));
 
 app.use('/api/auth', authRoute)
 app.use('/api/user',userRoute)
@@ -26,8 +28,9 @@ app.use('/api/categorie',categorieRoute)
 app.use(require("./routes/CategorieRoute"));
 app.use(require("./routes/ProductRoutes"));
 
-
 const PORT = process.env.PORT || 4000;
+
+
 
 
 
