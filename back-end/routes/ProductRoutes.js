@@ -10,7 +10,7 @@ const { authMiddleware } = require("../middlewares/AuthMiddleware");
 const errorHandller =require('../middlewares/errorHandller')
 
 
-route.post("/addproduct", upload.single("image"), AddNewProduct);
+route.post("/product/add", upload.single("image"), AddNewProduct);
 
 route.delete("/product/delete/:id", DeleteProduct);
 route.patch("/product/update/:id", UpdateProduct);
