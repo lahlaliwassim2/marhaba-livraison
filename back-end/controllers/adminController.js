@@ -11,6 +11,7 @@ const getAllUser = asyncHandler(async(req,res)=>{
         throw new Error("error")
     }
 })
+
 //Block User By Id
 const blockUser = asyncHandler(async(req,res)=>{
     const {id} = req.params
