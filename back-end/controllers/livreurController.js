@@ -39,6 +39,5 @@ const Addlivreur = async (req, res) => {
 
 
 
-module.exports = {
-    Addlivreur,
-};
+module.exports = Addlivreur
+
