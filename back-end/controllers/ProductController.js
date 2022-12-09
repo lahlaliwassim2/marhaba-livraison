@@ -6,16 +6,16 @@ const mongoose = require("mongoose");
 const upload = require("../utils/imageUploader");
 const Coment = require("../models/Coment");
 const { removeFile } = require("../utils/removeFile");
-const AddNewProduct = async (req, res) => {
-  const newImageName = await req.file.filename;
 
+const AddNewProduct = async (req, res) => {
   const newProduct = {
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
     cat_id: req.body.categorie,
-    image: newImageName,
+    image: req.file.filename,
   };
+
   const isFormFilled = Object.values(newProduct).every((value) => {
     if (value) {
       return true;
@@ -49,7 +49,6 @@ const DeleteProduct = async (req, res) => {
 };
 
 const UpdateProduct = async (req, res) => {
-
   const UpdatedProduct = {
     _id: req.params.id,
     title: req.body.title,
@@ -57,7 +56,7 @@ const UpdateProduct = async (req, res) => {
     price: req.body.price,
     cat_id: req.body.categorie,
   };
-  
+
   const isFormFilled = Object.values(UpdateProduct).every((value) => {
     if (value) {
       return true;

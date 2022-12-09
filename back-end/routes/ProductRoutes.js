@@ -8,7 +8,7 @@ const {
 const upload = require("../utils/imageUploader");
 const { authMiddleware } = require("../middlewares/AuthMiddleware");
 
-route.post("/addproduct", upload.single("image"), AddNewProduct);
+route.post("/product/add", upload.single("image"), AddNewProduct);
 
 route.delete("/product/delete/:id", DeleteProduct);
 route.patch("/product/update/:id", UpdateProduct);
