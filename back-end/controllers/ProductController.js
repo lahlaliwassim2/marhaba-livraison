@@ -49,6 +49,7 @@ const DeleteProduct = async (req, res) => {
 };
 
 const UpdateProduct = async (req, res) => {
+  
   const UpdatedProduct = {
     _id: req.params.id,
     title: req.body.title,
@@ -83,10 +84,10 @@ const UpdateProduct = async (req, res) => {
   }
 };
 
-const findAllProduct = asyncHandler(async (req, res) => {
-  const findAllProduct = await Product.find().populate("Categorie");
+const GetAllProduct = asyncHandler(async (req, res) => {
+  const allProduct = await Product.find({});
   try {
-    if (findAllProduct) res.json({ findAllProduct });
+    if (allProduct) res.json({ allProduct });
     else throw new Error("no product found");
   } catch (error) {
     throw new Error(error);
@@ -119,7 +120,7 @@ module.exports = {
   DeleteProduct,
   UpdateProduct,
 
-  findAllProduct,
+  GetAllProduct,
   comentProduct,
 };
 
