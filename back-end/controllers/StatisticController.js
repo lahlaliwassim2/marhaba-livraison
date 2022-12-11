@@ -23,7 +23,7 @@ const TotalUsers = async (req, res) => {
 
 const TotalLivreur = async (req, res) => {
   try {
-     User.countDocuments({ role_id: client_id }, function (err, docCount) {
+     User.countDocuments({ role_id: livreur_id }, function (err, docCount) {
       if (err) {
         return handleError(err);
       }
