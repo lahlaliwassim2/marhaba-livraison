@@ -49,7 +49,7 @@ const DeleteProduct = async (req, res) => {
 };
 
 const UpdateProduct = async (req, res) => {
-  
+
   const UpdatedProduct = {
     _id: req.params.id,
     title: req.body.title,
