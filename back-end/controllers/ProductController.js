@@ -33,7 +33,7 @@ const AddNewProduct = async (req, res) => {
     }
   } else res.json("Please fill All Fields");
 };
-
+7
 const DeleteProduct = async (req, res) => {
   const { id } = req.params;
   try {
