@@ -12,7 +12,9 @@ const AddNewProduct = async (req, res) => {
     description: req.body.description,
     price: req.body.price,
     cat_id: req.body.categorie,
+    image: req.file.filename,
   };
+
   const isFormFilled = Object.values(newProduct).every((value) => {
     if (value) {
       return true;
@@ -30,7 +32,7 @@ const AddNewProduct = async (req, res) => {
     }
   } else res.json("Please fill All Fields");
 };
-
+7
 const DeleteProduct = async (req, res) => {
   const { id } = req.params;
   try {
@@ -54,7 +56,7 @@ const UpdateProduct = async (req, res) => {
     price: req.body.price,
     cat_id: req.body.categorie,
   };
-  
+
   const isFormFilled = Object.values(UpdateProduct).every((value) => {
     if (value) {
       return true;
@@ -81,10 +83,10 @@ const UpdateProduct = async (req, res) => {
   }
 };
 
-const findAllProduct = asyncHandler(async (req, res) => {
-  const findAllProduct = await Product.find().populate("Categorie");
+const GetAllProduct = asyncHandler(async (req, res) => {
+  const allProduct = await Product.find({});
   try {
-    if (findAllProduct) res.json({ findAllProduct });
+    if (allProduct) res.json({ allProduct });
     else throw new Error("no product found");
   } catch (error) {
     throw new Error(error);
@@ -117,7 +119,7 @@ module.exports = {
   DeleteProduct,
   UpdateProduct,
 
-  findAllProduct,
+  GetAllProduct,
   comentProduct,
 };
 
