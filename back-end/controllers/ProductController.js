@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const upload = require("../utils/imageUploader");
 const Coment = require("../models/Coment");
 const { removeFile } = require("../utils/removeFile");
-
 const AddNewProduct = async (req, res) => {
   const newProduct = {
     title: req.body.title,
@@ -14,7 +13,6 @@ const AddNewProduct = async (req, res) => {
     price: req.body.price,
     cat_id: req.body.categorie,
     image: req.file.filename,
-
   };
 
   const isFormFilled = Object.values(newProduct).every((value) => {
