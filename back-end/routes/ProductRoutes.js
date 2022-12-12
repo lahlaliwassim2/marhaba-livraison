@@ -7,8 +7,7 @@ const {
 } = require("../controllers/ProductController");
 const upload = require("../utils/imageUploader");
 const { authMiddleware } = require("../middlewares/AuthMiddleware");
-const errorHandller =require('../middlewares/errorHandller')
-
+const errorHandller = require("../middlewares/errorHandller");
 
 route.post("/addproduct", upload.single("image"), AddNewProduct);
 
@@ -16,7 +15,7 @@ route.delete("/product/delete/:id", DeleteProduct);
 route.patch("/product/update/:id", UpdateProduct);
 route.post("/comentproduct/:id", authMiddleware, comentProduct);
 
-route.use(errorHandller)
+route.use(errorHandller);
 // route.get('/getproducts',findAllProduct)
 
 module.exports = route;

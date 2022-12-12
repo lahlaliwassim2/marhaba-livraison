@@ -49,7 +49,6 @@ const DeleteProduct = async (req, res) => {
 };
 
 const UpdateProduct = async (req, res) => {
-
   const UpdatedProduct = {
     _id: req.params.id,
     title: req.body.title,
@@ -57,7 +56,7 @@ const UpdateProduct = async (req, res) => {
     price: req.body.price,
     cat_id: req.body.categorie,
   };
-  
+
   const isFormFilled = Object.values(UpdateProduct).every((value) => {
     if (value) {
       return true;
