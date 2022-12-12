@@ -19,7 +19,6 @@ route.delete("/product/delete/:id", DeleteProduct);
 route.patch("/product/update/:id", UpdateProduct);
 route.post("/comentproduct/:id", authMiddleware, comentProduct);
 
-route.use(errorHandller)
 // route.get('/getproducts',findAllProduct)
 
 module.exports = route;

@@ -14,6 +14,7 @@ const AddNewProduct = async (req, res) => {
     price: req.body.price,
     cat_id: req.body.categorie,
     image: req.file.filename,
+
   };
 
   const isFormFilled = Object.values(newProduct).every((value) => {
