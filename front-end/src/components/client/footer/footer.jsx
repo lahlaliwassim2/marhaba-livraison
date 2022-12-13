@@ -1,3 +1,8 @@
+import { AiOutlineEnvironment } from 'react-icons/ai';
+import { AiOutlinePhone } from 'react-icons/ai';
+import { AiOutlineMail } from 'react-icons/ai'
+
+
 export default function Footer() {
     return (
 
@@ -6,10 +11,10 @@ export default function Footer() {
     <div className="max-w-screen-lg px-4 mx-auto text-gray-400 xl:max-w-screen-xl sm:px-6 md:px-8 dark:text-gray-300">
 
         <div className="flex justify-center pb-8 text-lg font-light">
-            <div>
-            <p className="text-center">Adress : Youssoufia Luis gentille 43626 Monte Carlo</p>
-            <p className="text-center">Phone : +212 656-239870</p>
-            <p className="text-center">E-mail : marhaba.ycd@gmail.com</p>
+            <div className='text-center'>
+            <p className="text-center flex"> <span className='mt-1'> <AiOutlineEnvironment/> </span>  . Youssoufia Luis gentille 43626 Monte Carlo</p>
+            <p className="text-center flex"> <span className='mt-1'> <AiOutlinePhone/> </span> . +212 656-239870</p>
+            <p className="text-center flex"> <span className='mt-1'> <AiOutlineMail/> </span> . marhaba.ycd@gmail.com</p>
             </div>
         </div>
         <div className="pt-8 flex border-t border-gray-200 max-w-xs mx-auto items-center justify-between">
