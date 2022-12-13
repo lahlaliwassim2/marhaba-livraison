@@ -1,9 +1,8 @@
-import Footer from "./components/client/footer/footer"
+import AddProduct from "./pages/admin/forms/addProduct"
 
 
 export default function App() {
   return (
-     <Footer/>
-    
+    <></>
   )
 }
