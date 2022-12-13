@@ -28,7 +28,7 @@ const register = async (req, res) => {
   }
 };
 
-const login = async (req , res) => {
+const login = async (req, res) => {
   const { body } = req;
   if (!body.email || !body.password) throw Error("Fill all filled");
   const findUser = await User.findOne({ email: body.email });
