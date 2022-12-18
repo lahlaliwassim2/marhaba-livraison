@@ -1,18 +1,27 @@
 import "./cart.css";
+import { useState } from "react";
+import {AiOutlineArrowLeft} from "react-icons/ai"
 
 export default function Cart() {
+  const [cart, setCart] = useState(false)
+  
+
   return (
 
     <div className="flex flex-row">
 
    
 
-    <div className="sidebarCart overflow-y-auto invisible h-full w-[30%] py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+    <div className={(!cart)? 'invisible': 'overflow-y-auto h-full w-[30%] py-4 px-3 bg-gray-50 rounded dark:bg-gray-800'}>
       <div className="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg  md:max-w-5xl w-full h-full">
         <div className="md:flex w-full  h-full ">
           <div className="w-full p-4 px-5 py-5  h-full">
-            <div className="md:grid md:grid-cols-2 gap-1 w-full h-full  ">
-              <h1 className="text-xl ml-3 font-medium ">Cart</h1>
+            <div className="md:grid md:grid-cols-1 gap-1 w-full h-full ">
+              <div className="flex flex-row  justify-between bg-slate-200 w-full">
+                <h1 className="text-xl ml-3 font-medium ">Cart</h1> 
+                <button onClick={()=> {setCart(false)}}><AiOutlineArrowLeft/></button>
+              </div>
+              
               <div className="col-span-2 p-1 w-full ">
                 <div className=" justify-between items-center mt-6 pt-3 w-full h-[70%] max-h-[70%] overflow-y-auto">
                   <div className="flex mb-2  items-center w-full ">
@@ -211,7 +220,7 @@ export default function Cart() {
     
     </div>
 
-    <button className="float-end m-auto bg-teal-500" onClick={ ()=> sidebarCart.className = "visible"  }>Add to cart</button>
+    <button className="float-end m-auto bg-teal-500" onClick={()=> {setCart(true)} }>Add to cart</button>
     </div>
   );
 }
