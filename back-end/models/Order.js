@@ -1,16 +1,14 @@
 const mongoose = require('mongoose')
+const OrderDetails = require('./OrderDetails')
 
 const orderSchema = mongoose.Schema(
     {
         user_id: {
-            type: Number,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             required: [true, 'Please add a name'],
         },
-        products_order: {
-            type: Number,
-            required: [true, 'Please add an email'],
-            unique: true,
-        },  
+        order_details: [OrderDetails],  
         adress: {
             type: Number,
             required: [true, 'Please add an phone Number']
@@ -18,7 +16,8 @@ const orderSchema = mongoose.Schema(
    
         ville_id: 
             {
-                type: Number, 
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Ville", 
                 required: [true]
 
             },
