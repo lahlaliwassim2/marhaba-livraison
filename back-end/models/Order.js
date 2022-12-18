@@ -6,15 +6,11 @@ const orderSchema = mongoose.Schema(
             type: Number,
             required: [true, 'Please add a name'],
         },
-        product_id: {
+        products_order: {
             type: Number,
             required: [true, 'Please add an email'],
             unique: true,
-        },
-        quantity: {
-            type: Number,
-            required: [true, 'Please add an password']
-        },   
+        },  
         adress: {
             type: Number,
             required: [true, 'Please add an phone Number']
