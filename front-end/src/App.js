@@ -1,9 +1,9 @@
 import { Container } from "react-bootstrap";
 import {Routes , Route } from 'react-router-dom'
-import Home from './components/Home'
-import Store from './components/Store'
-import About from './components/About'
-import Navbar from "./components/Navbar";
+import Home from './components/home/Home'
+import Store from './components/store/Store'
+import About from './components/about/About'
+import Navbar from "./components/navbar/Navbar";
 import ShoppingCarteProvider from './context/ShoppingCarteContext'
 function App() {
   return (

@@ -1,8 +1,8 @@
 import React from "react";
 import { Stack, Button } from "react-bootstrap";
-import { useShoppigCart } from "../context/ShoppingCarteContext";
-import storeItems from "../data/items.json";
-import FormatCurrency from "./formatCurrency";
+import { useShoppigCart } from "../../context/ShoppingCarteContext";
+import storeItems from "../../data/items.json";
+import FormatCurrency from "../formatCurrency";
 const CartItem = ({ id, quantity }) => {
   const { removeFromCart } = useShoppigCart();
   const item = storeItems.find((i) => i.id === id);
