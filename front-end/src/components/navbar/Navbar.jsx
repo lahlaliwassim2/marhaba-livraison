@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useShoppigCart } from "../context/ShoppingCarteContext";
+import { useShoppigCart } from "../../context/ShoppingCarteContext";
 const Navbar = () => {
   const { openCart, cartQuantity } = useShoppigCart();
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import { useShoppigCart } from "../context/ShoppingCarteContext";
-import FormatCurrency from "./formatCurrency";
+import { useShoppigCart } from "../../context/ShoppingCarteContext";
+import FormatCurrency from "../formatCurrency";
 const StoreItem = ({ id, name, price, imgUrl }) => {
   const {
     getItemQuantity,
