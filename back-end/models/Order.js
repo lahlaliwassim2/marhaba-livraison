@@ -8,7 +8,10 @@ const orderSchema = mongoose.Schema(
             ref: "User",
             required: [true, 'Please add a name'],
         },
-        order_details: [OrderDetails],  
+        order_details:{
+            type: Array,
+            ref : OrderDetails
+        },  
         adress: {
             type: Number,
             required: [true, 'Please add an phone Number']
