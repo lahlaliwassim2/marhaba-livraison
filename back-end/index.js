@@ -5,7 +5,7 @@ const User = require("./models/User");
 const dotenv = require("dotenv").config();
 require("./configs/db");
 require("./models/generateRole");
-
+const cors = require('cors')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Route

@@ -1,13 +1,23 @@
-// import Footer from "./components/client/footer/footer"
-import Client from "./components/client/client"
-import Cart from "./components/client/clientRightbar/cart/cart"
-
-import clientRightbar from "./components/client/clientRightbar/clientRightbar"
-
-
-export default function App() {
+import { Container } from "react-bootstrap";
+import {Routes , Route } from 'react-router-dom'
+import Home from './components/home/Home'
+import Store from './components/store/Store'
+import About from './components/about/About'
+import Navbar from "./components/navbar/Navbar";
+import ShoppingCarteProvider from './context/ShoppingCarteContext'
+function App() {
   return (
-     <Cart/>
-    
-  )
+   <ShoppingCarteProvider>
+   <Navbar />
+   <Container className="mb-4 <">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+   </Container>
+   </ShoppingCarteProvider>
+  );
 }
+
+export default App;
