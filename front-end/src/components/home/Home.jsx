@@ -1,8 +1,9 @@
 import React from 'react'
+import { useState } from 'react'
 
-const Home = () => {
-  return (
-    <div>Home</div>
+const Home = () => {(
+  <>Hoome</>
+ 
   )
 }
 
