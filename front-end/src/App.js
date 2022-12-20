@@ -5,6 +5,8 @@ import Store from './components/store/Store'
 import About from './components/about/About'
 import Navbar from "./components/navbar/Navbar";
 import ShoppingCarteProvider from './context/ShoppingCarteContext'
+import ListeLivreur from "./components/admin/manage-livreur/ListeLivreur"
+
 function App() {
   return (
    <ShoppingCarteProvider>
@@ -14,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store />} />
         <Route path="/about" element={<About />} />
+        <Route path="/livreurliste" element={<ListeLivreur />} />
       </Routes>
    </Container>
    </ShoppingCarteProvider>
