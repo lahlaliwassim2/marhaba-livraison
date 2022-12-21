@@ -14,7 +14,6 @@ const Register = () => {
       [e.target.name]: val,
     });
   }
-
   async function handleSubmit(e) {
     e.preventDefault();
     await axios
