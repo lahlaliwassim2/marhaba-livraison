@@ -8,7 +8,7 @@ const bcrypt = require("bcryptjs");
 const register = async (req, res) => {
   const { body } = req;
   if (!body.name || !body.email || !body.password || !body.phone)
-    throw Error("Fill all filled");
+    throw Error("Inputs is not filled");
   else {
     const finduser = await User.findOne({ email: body.email });
     if (finduser) throw Error("email a already existed");
@@ -22,15 +22,17 @@ const register = async (req, res) => {
         status: "Pending",
       });
       if (!user) throw Error("error");
-      mailer.main("register", user);
-      res.send(user);
+      else {
+        mailer.main("register", user);
+        res.json({message: "Check your email"});
+      }
     }
   }
 };
 
-const login = async (req , res) => {
+const login = async (req, res) => {
   const { body } = req;
-  if (!body.email || !body.password) throw Error("Fill all filled");
+  if (!body.email || !body.password) throw Error("Inputs is not filled");
   const findUser = await User.findOne({ email: body.email });
   if (!findUser || !(await bcrypt.compare(body.password, findUser.password)))
     throw Error("email or password is incorrect");
@@ -41,7 +43,10 @@ const login = async (req , res) => {
     process.env.SECRET_TOCKEN
   );
   storage("token", token);
-  res.json({ token: storage("token") });
+  const roles = await Role.findOne({role_id:findUser.role_id})
+ 
+  console.log(roles)
+  res.json({ name: findUser.name, role_id: roles.name, token: storage("token") });
 };
 
 const verifyEmail = async (req, res) => {
@@ -55,7 +60,9 @@ const verifyEmail = async (req, res) => {
     { $set: { status: "Active" } }
   );
   if (!verify_email) throw Error("Error");
-  res.send("Your acount is Actived");
+  res.redirect('http://localhost:3000/login')
+  // res.send("Your acount is Actived");
+  
 };
 
 const resetPassword = async (req, res) => {
