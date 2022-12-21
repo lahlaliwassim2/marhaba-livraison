@@ -6,6 +6,33 @@ import FormatCurrency from "../formatCurrency";
 import axios  from "axios";
 
 const ShoppingCart = ({ isOpen }) => {
+  const [chek , setChek] = useState([])
+  
+   useEffect(()=>{
+
+    if(localStorage.getItem("shopping-cart")){
+      const products =  JSON.parse(localStorage.getItem("shopping-cart"))
+      console.log(products)
+    }else{
+      console.log('erre')
+    }
+  
+   },[])
+  
+  
+
+  
+
+//   const PassChek = ()=>{
+//   if(localStorage.setItem("shopping-cart")){
+//     const products =  JSON.parse(localStorage.getItem("shopping-cart"))
+    
+//     console.log(products)
+//   }else{
+//     console.log('erre')
+//   }
+// }
+
   let [product,setProduct] = useState([])
   useEffect(()=>{
     axios.get('http://localhost:5000/api/product/product')
@@ -36,6 +63,11 @@ const ShoppingCart = ({ isOpen }) => {
                 return total + (item?.price || 0) * cartItem.quantity;
               }, 0)
             )}
+          </div>
+          <div>
+            <button className="ms-auto fw-bold fs-5">
+              passe checkout
+            </button >
           </div>
         </Stack>
       </Offcanvas.Body>
