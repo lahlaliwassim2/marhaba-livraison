@@ -5,6 +5,7 @@ import FormatCurrency from "../formatCurrency";
 import axios from "axios";
 const CartItem = ({ _id, quantity }) => {
   let [product,setProduct] = useState([])
+
   useEffect(()=>{
     axios.get('http://localhost:5000/api/product/product')
     .then((res)=>{
@@ -15,6 +16,7 @@ const CartItem = ({ _id, quantity }) => {
       console.log(err.msg)
     })
   },[])
+  
   const { removeFromCart } = useShoppigCart();
   const item = product.find((i) => i.id === _id);
   if (item == null) return null;
@@ -42,7 +44,7 @@ const CartItem = ({ _id, quantity }) => {
       <Button
         variant="outline-danger"
         size="sm"
-        onClick={() => removeFromCart(item.id)}
+        onClick={() => removeFromCart(item._id)}
       >
         &times;
       </Button>
