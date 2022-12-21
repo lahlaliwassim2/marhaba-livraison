@@ -5,8 +5,9 @@ const User = require("./models/User");
 const dotenv = require("dotenv").config();
 require("./configs/db");
 require("./models/generateRole");
-const cors = require('cors')
+const cors = require("cors");
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 // Route
 const authRoute = require("./routes/authRoutes");
@@ -29,8 +30,6 @@ app.use(require("./routes/CategorieRoute"));
 app.use(require("./routes/ProductRoutes"));
 
 const PORT = process.env.PORT || 4000;
-
-
 
 /* Listening to the port and logging the message to the console. */
 app.listen(PORT, () => {
