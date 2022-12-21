@@ -4,6 +4,7 @@ import { useShoppigCart } from "../../context/ShoppingCarteContext";
 import FormatCurrency from "../formatCurrency";
 import axios from "axios";
 const CartItem = ({ id, quantity }) => {
+const base_url = 'http://localhost:5000/images/';
   let [product,setProduct] = useState([])
 
   useEffect(()=>{
@@ -23,7 +24,7 @@ const CartItem = ({ id, quantity }) => {
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
-        src={item.image}
+        src={base_url +item.image}
         alt="cart-img"
         style={{ width: "125px", height: "75px", objectFit: "cover" }}
       />
