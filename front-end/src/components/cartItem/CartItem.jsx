@@ -1,22 +1,35 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Stack, Button } from "react-bootstrap";
 import { useShoppigCart } from "../../context/ShoppingCarteContext";
-import storeItems from "../../data/items.json";
 import FormatCurrency from "../formatCurrency";
-const CartItem = ({ id, quantity }) => {
+import axios from "axios";
+const CartItem = ({ _id, quantity }) => {
+  let [product,setProduct] = useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:5000/api/product/product')
+    .then((res)=>{
+      setProduct(res.data.allProduct)
+      console.log(res.data)
+    })
+    .catch((err)=>{
+      console.log(err.msg)
+    })
+  },[])
+  
   const { removeFromCart } = useShoppigCart();
-  const item = storeItems.find((i) => i.id === id);
+  const item = product.find((i) => i.id === _id);
   if (item == null) return null;
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
-        src={item.imgUrl}
+        src={item.image}
         alt="cart-img"
         style={{ width: "125px", height: "75px", objectFit: "cover" }}
       />
       <div className="me-auto">
         <div>
-          {item.name}{" "}
+          {item.title}{" "}
           {quantity > 1 && (
             <span className="text-muted" style={{ fontSize: "0.65rem" }}>
               x{quantity}
@@ -31,7 +44,7 @@ const CartItem = ({ id, quantity }) => {
       <Button
         variant="outline-danger"
         size="sm"
-        onClick={() => removeFromCart(item.id)}
+        onClick={() => removeFromCart(item._id)}
       >
         &times;
       </Button>
