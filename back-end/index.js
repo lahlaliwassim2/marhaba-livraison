@@ -18,7 +18,7 @@ const categorieRoute = require("./routes/CategorieRoute");
 const productRouter = require("./routes/ProductRoutes");
 const statisticRoute = require("./routes/statisticRoutes");
 app.use(require("./routes/livreurRoute"));
-
+app.use('/images' , express.static('images'))
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
