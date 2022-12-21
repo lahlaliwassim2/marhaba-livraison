@@ -4,28 +4,17 @@ const orderSchema = mongoose.Schema(
     {
         user_id: {
             type: Number,
-            required: [true, 'Please add a name'],
+            ref: "User"
         },
         product_id: {
             type: Number,
-            required: [true, 'Please add an email'],
-            unique: true,
+            ref: "Product"
         },
         quantity: {
             type: Number,
             required: [true, 'Please add an password']
         },   
-        adress: {
-            type: Number,
-            required: [true, 'Please add an phone Number']
-        },   
-   
-        ville_id: 
-            {
-                type: Number, 
-                required: [true]
-
-            },
+       
         status: {
                 type: String, 
                 enum: ['Pending', 'Active','Banned'],
