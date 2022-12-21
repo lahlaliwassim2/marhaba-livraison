@@ -4,6 +4,7 @@ import Home from './components/home/Home'
 import Store from './components/store/Store'
 import About from './components/about/About'
 import Navbar from "./components/navbar/Navbar";
+
 import ShoppingCarteProvider from './context/ShoppingCarteContext'
 function App() {
   return (
