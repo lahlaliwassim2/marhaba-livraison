@@ -5,7 +5,7 @@ import { useShoppigCart } from "../../context/ShoppingCarteContext";
 const Navbar = () => {
   const { openCart, cartQuantity } = useShoppigCart();
   return (
-    <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
+    <NavbarBs sticky="top" style={{'height': '10vh'}} className="bg-white shadow-sm">
       <Container>
         <Nav className="me-auto">
           <Nav.Link to="/" as={NavLink}>
