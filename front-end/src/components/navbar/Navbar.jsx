@@ -5,7 +5,7 @@ import { useShoppigCart } from "../../context/ShoppingCarteContext";
 const Navbar = () => {
   const { openCart, cartQuantity } = useShoppigCart();
   return (
-    <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
+    <NavbarBs sticky="top" style={{'height': '10vh'}} className="bg-white shadow-sm">
       <Container>
         <Nav className="me-auto">
           <Nav.Link to="/" as={NavLink}>
@@ -16,6 +16,12 @@ const Navbar = () => {
           </Nav.Link>
           <Nav.Link to="/about" as={NavLink}>
             About
+          </Nav.Link>
+          <Nav.Link to="/login" as={NavLink}>
+            Login
+          </Nav.Link>
+          <Nav.Link to="/register" as={NavLink}>
+            Register
           </Nav.Link>
         </Nav>
         {cartQuantity > 0 && (

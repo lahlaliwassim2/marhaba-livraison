@@ -21,9 +21,9 @@ useEffect(()=>{
   return (
     <>
     <h2>Store</h2>
-    <Row>
+    <Row   >
       {product.map((item)=>(
-        <Col key={item._id}>
+        <Col key={item._id} className="m-3" >
           <StoreItem  {...item} />
         </Col>
       ))}
