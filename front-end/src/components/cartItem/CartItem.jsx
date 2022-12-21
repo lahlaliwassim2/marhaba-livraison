@@ -3,6 +3,8 @@ import { Stack, Button } from "react-bootstrap";
 import { useShoppigCart } from "../../context/ShoppingCarteContext";
 import FormatCurrency from "../formatCurrency";
 import axios from "axios";
+const base_url = 'http://localhost:5000/images/';
+
 const CartItem = ({ _id, quantity }) => {
   let [product,setProduct] = useState([])
 
@@ -23,7 +25,7 @@ const CartItem = ({ _id, quantity }) => {
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
-        src={item.image}
+        src={base_url +item.image}
         alt="cart-img"
         style={{ width: "125px", height: "75px", objectFit: "cover" }}
       />
