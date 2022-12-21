@@ -10,6 +10,7 @@ const Sidbar = () => {
       {/* <svg className="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> */}
       <span className="fs-4"><img id="logo" src={Logo} alt="..." /></span>
     </Link>
+      <h5 className='text-center text-light'>Admin NAME</h5>
     <hr/>
     <ul className="nav nav-pills flex-column mb-auto">
       <li>
@@ -19,13 +20,19 @@ const Sidbar = () => {
         </Link>
       </li>
       <li>
+        <Link to="orders" className="nav-link text-white">
+          {/* <svg className="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> */}
+          Orders
+        </Link>
+      </li>
+      <li>
         <Link to="livreurs" className="nav-link text-white">
           {/* <svg className="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg> */}
             Livreurs
         </Link>
       </li>
       <li>
-        <Link to="orders" className="nav-link text-white">
+        <Link to="clients" className="nav-link text-white">
           {/* <svg className="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg> */}
           Clients
         </Link>

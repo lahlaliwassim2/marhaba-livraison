@@ -10,6 +10,9 @@ import Register from "./components/forms/register";
 import Dashboard from "./components/admin/dashboard/dashboard";
 import ShowLivreur from "./components/admin/livreur/ShowLivreur";
 import ShowOrders from "./components/admin/orders/ShowOrders"
+import ShowProduct from "./components/admin/produit/ShowProduct";
+import ShowCategorie from "./components/admin/categorie/ShowCategorie";
+import ShowClients from "./components/admin/clients/ShowClients";
 // import Sidbar from "./components/admin/Sidbar/Sidbar";
 
 
@@ -30,6 +33,9 @@ function App() {
           
             <Route path="/dashboard/livreurs" element={<ShowLivreur/>}/>
             <Route path="/dashboard/orders" element={<ShowOrders/>}/>
+            <Route path="/dashboard/products" element={<ShowProduct/>}/>
+            <Route path="/dashboard/categories" element={<ShowCategorie/>}/>
+            <Route path="/dashboard/clients" element={<ShowClients/>}/>
           </Route>
         </Routes>
       </div>
