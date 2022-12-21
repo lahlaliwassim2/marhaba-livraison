@@ -5,7 +5,10 @@ import "./login.css";
 import Logo from "../../assets/logo/logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const Navigate = useNavigate()
   const [user, setUser] = useState({});
   function handlChange(e) {
     const val = e.target.value;
@@ -23,6 +26,7 @@ const Login = () => {
         if(!res.data.token) toast.error(res.data, {position: toast.POSITION.TOP_RIGHT});
         if(res.data.token){
           localStorage.setItem('isConnected',res.data.token)
+          Navigate('/store')
         }
       })
       .catch((error) => console.log(error));
