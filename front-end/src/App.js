@@ -4,6 +4,7 @@ import Home from './components/home/Home'
 import Store from './components/store/Store'
 import About from './components/about/About'
 import Navbar from "./components/navbar/Navbar";
+import Checkout from './components/checkout/checkout'
 import ShoppingCarteProvider from './context/ShoppingCarteContext'
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store />} />
         <Route path="/about" element={<About />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
    </Container>
    </ShoppingCarteProvider>
