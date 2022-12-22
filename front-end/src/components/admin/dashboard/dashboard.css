@@ -1,9 +1,9 @@
 .sidebar-container{
     height: 100vh;
     width: 20%;
-    margin-left: 0;
 }
 
 .outlet-container{
-    width: 80%;
+    width: 76%;
+    height: 100vh;
 }
