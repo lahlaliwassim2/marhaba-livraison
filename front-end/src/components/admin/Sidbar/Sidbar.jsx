@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import Logo from "../../../assets/logo/logo.png";
 import "./Sidbar.css"
 
@@ -10,11 +10,15 @@ const Sidbar = () => {
       {/* <svg className="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> */}
       <span className="fs-4"><img id="logo" src={Logo} alt="..." /></span>
     </NavLink>
+    <div className='d-flex flex-column'>
       <h5 className='text-center text-light'>Admin NAME</h5>
+    <Link to="/login" className='text-center text-light'>Logout</Link>
+    </div>
+      
     <hr/>
     <ul className="nav nav-pills flex-column mb-auto">
       <li>
-        <NavLink to="statistique" className="nav-link text-white">
+        <NavLink to="statistic" className="nav-link text-white">
           {/* <svg className="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg> */}
           Dashboard
         </NavLink>
