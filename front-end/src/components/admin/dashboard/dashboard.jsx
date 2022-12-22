@@ -9,7 +9,7 @@ const Dashboard = () => {
       <div className='sidebar-container ' >
         <Sidbar />
       </div>
-      <div className='outlet-container d-flex flex-column m-auto '>
+      <div className='outlet-container-box d-flex mx-auto border-success mt-2'>
        <Outlet />
       </div>
 
