@@ -6,7 +6,7 @@ import "./Sidbar.css"
 const Sidbar = () => {
   return (
     <div className="sidebar d-flex flex-column flex-shrink-0 p-1 m-auto text-bg-dark w-100 h-100" > 
-    <NavLink to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto m-auto text-white text-decoration-none">
+    <NavLink to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto mt-2 text-white text-decoration-none">
       {/* <svg className="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> */}
       <span className="flex fs-4 text-center"><img className='w-50 h-50 m-auto' id="logo" src={Logo} alt="..." /></span>
     </NavLink>
