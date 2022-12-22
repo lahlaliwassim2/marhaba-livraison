@@ -3,9 +3,9 @@ import { Stack, Button } from "react-bootstrap";
 import { useShoppigCart } from "../../context/ShoppingCarteContext";
 import FormatCurrency from "../formatCurrency";
 import axios from "axios";
-const base_url = 'http://localhost:5000/images/';
 
-const CartItem = ({ _id, quantity }) => {
+const CartItem = ({ id, quantity }) => {
+const base_url = 'http://localhost:5000/images/';
   let [product,setProduct] = useState([])
 
   useEffect(()=>{
@@ -20,7 +20,7 @@ const CartItem = ({ _id, quantity }) => {
   },[])
   
   const { removeFromCart } = useShoppigCart();
-  const item = product.find((i) => i.id === _id);
+  const item = product.find((i) => i._id === id);
   if (item == null) return null;
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
