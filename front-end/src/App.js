@@ -15,7 +15,6 @@ import ShowCategorie from "./components/admin/categorie/ShowCategorie";
 import ShowClients from "./components/admin/clients/ShowClients";
 import Statistique from "./components/admin/statistique/Statistique";
 import ShowVille from "./components/admin/ville/ShowVille";
-// import Sidbar from "./components/admin/Sidbar/Sidbar";
 
 
 
