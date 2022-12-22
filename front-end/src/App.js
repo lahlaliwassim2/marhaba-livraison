@@ -16,14 +16,10 @@ import Statistique from "./components/admin/statistique/Statistique";
 import ShowVille from "./components/admin/ville/ShowVille";
 import LivreurDash  from './components/livreur/dashboard.jsx'
 
-
-
-
-
 function App() {
   return (
     <ShoppingCarteProvider>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="mb-4">
         <Routes>
           

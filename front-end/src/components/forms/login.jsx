@@ -43,7 +43,7 @@ const Login = () => {
           "align-items": "center",
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <div className="card">
             <div className="d-flex flex-lg-row flex-column-reverse">
               <div className="card card1">
