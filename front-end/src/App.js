@@ -1,4 +1,3 @@
-// import { Container } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import Store from "./components/store/Store";
@@ -44,7 +43,7 @@ function App() {
             <Route path="/dashboard/clients" element={<ShowClients/>}/>
             <Route index element={<Statistique/>}/>
             <Route path="/dashboard/statistic" element={<Statistique/>}/>
-            <Route path="/dashboard/ville" element={<ShowVille/>}/>
+            <Route path="/dashboard/villes" element={<ShowVille/>}/>
           </Route>
         </Routes>
       </div>
