@@ -7,14 +7,8 @@ import About from "./components/about/About";
 import ShoppingCarteProvider from "./context/ShoppingCarteContext";
 import Login from "./components/forms/login";
 import Register from "./components/forms/register";
-import Dashboard from "./components/admin/dashboard/dashboard";
-import ShowLivreur from "./components/admin/livreur/ShowLivreur";
-import ShowOrders from "./components/admin/orders/ShowOrders"
-import ShowProduct from "./components/admin/produit/ShowProduct";
-import ShowCategorie from "./components/admin/categorie/ShowCategorie";
-import ShowClients from "./components/admin/clients/ShowClients";
-import Statistique from "./components/admin/statistique/Statistique";
-// import Sidbar from "./components/admin/Sidbar/Sidbar";
+import LivreurDash  from './components/livreur/dashboard.jsx'
+
 
 
 
@@ -31,6 +25,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/livreur/dashboard" element={<LivreurDash />} />
+
           <Route path="/dashboard" element={<Dashboard />}>
           
             <Route path="/dashboard/livreurs" element={<ShowLivreur/>}/>
