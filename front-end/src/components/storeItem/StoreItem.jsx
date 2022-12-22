@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useShoppigCart } from "../../context/ShoppingCarteContext";
 import FormatCurrency from "../formatCurrency";
+const base_url = 'http://localhost:5000/images/';
 const StoreItem = ({ _id, title, price, image }) => {
   const {
     getItemQuantity,
@@ -14,7 +15,7 @@ const StoreItem = ({ _id, title, price, image }) => {
     <Card className="h-100">
       <Card.Img
         variant="top"
-        src={image}
+        src={base_url+image}
         style={{ height: "200px", objectFit: "cover" }}
       />
       <Card.Body className="d-flex flex-column">

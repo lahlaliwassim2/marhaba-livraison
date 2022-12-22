@@ -108,7 +108,7 @@ const comentProduct = asyncHandler(async (req, res) => {
       res.json({
         addComent,
       });
-    else throw new Error("no coment added");
+    else throw new Error("no comment added");
   } catch (error) {
     throw new Error(error);
   }
@@ -123,4 +123,3 @@ module.exports = {
   comentProduct,
 };
 
-// Ersjr81
