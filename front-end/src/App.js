@@ -13,6 +13,7 @@ import ShowOrders from "./components/admin/orders/ShowOrders"
 import ShowProduct from "./components/admin/produit/ShowProduct";
 import ShowCategorie from "./components/admin/categorie/ShowCategorie";
 import ShowClients from "./components/admin/clients/ShowClients";
+import Statistique from "./components/admin/statistique/Statistique";
 // import Sidbar from "./components/admin/Sidbar/Sidbar";
 
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="/dashboard/products" element={<ShowProduct/>}/>
             <Route path="/dashboard/categories" element={<ShowCategorie/>}/>
             <Route path="/dashboard/clients" element={<ShowClients/>}/>
+            <Route path="/dashboard/statistic" element={<Statistique/>}/>
           </Route>
         </Routes>
       </div>
