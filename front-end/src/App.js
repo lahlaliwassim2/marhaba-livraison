@@ -15,6 +15,8 @@ import ShowCategorie from "./components/admin/categorie/ShowCategorie";
 import ShowClients from "./components/admin/clients/ShowClients";
 import Statistique from "./components/admin/statistique/Statistique";
 import ShowVille from "./components/admin/ville/ShowVille";
+import LivreurDash  from './components/livreur/dashboard.jsx'
+
 
 
 
@@ -31,6 +33,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/livreur/dashboard" element={<LivreurDash />} />
+
           <Route path="/dashboard" element={<Dashboard />}>
           
             <Route path="/dashboard/livreurs" element={<ShowLivreur/>}/>
