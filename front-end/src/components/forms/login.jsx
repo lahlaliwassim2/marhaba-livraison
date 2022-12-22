@@ -22,7 +22,7 @@ const Login = () => {
       .then((res) => {
         if(!res.data.token) toast.error(res.data, {position: toast.POSITION.TOP_RIGHT});
         if(res.data.token){
-          console.log(res.data.role_id)
+          window.location.replace("store");
         }
       })
       .catch((error) => console.log(error));
@@ -39,7 +39,7 @@ const Login = () => {
           "align-items": "center",
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <div className="card">
             <div className="d-flex flex-lg-row flex-column-reverse">
               <div className="card card1">

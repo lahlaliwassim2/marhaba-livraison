@@ -45,7 +45,7 @@ const login = async (req, res) => {
   storage("token", token);
   const roles = await Role.findOne({role_id:findUser.role_id})
  
-  console.log(roles)
+  // console.log(roles)
   res.json({ name: findUser.name, role_id: roles.name, token: storage("token") });
 };
 
