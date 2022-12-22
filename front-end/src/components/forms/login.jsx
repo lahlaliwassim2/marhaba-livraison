@@ -22,7 +22,7 @@ const Login = () => {
       .then((res) => {
         if(!res.data.token) toast.error(res.data, {position: toast.POSITION.TOP_RIGHT});
         if(res.data.token){
-          console.log(res.data.role_id)
+          localStorage.setItem('isConnected',res.data.token)
         }
       })
       .catch((error) => console.log(error));

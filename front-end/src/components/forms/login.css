@@ -1,8 +1,6 @@
 body {
     color: #000;
     overflow-x: hidden;
-    height: 100vh;
-    background-image: linear-gradient(to right, #D500F9, #FFD54F);
     background-repeat: no-repeat
 }
 
