@@ -40,7 +40,7 @@ const Register = () => {
 
   return (
     <>
-      <div
+      <div className="was"
         style={{
           height: "100vh",
           display: "flex",

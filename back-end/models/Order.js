@@ -7,22 +7,21 @@ const orderSchema = mongoose.Schema(
             ref: "User"
         },
         product_id: {
-            type: Number,
+            type: Array,
             ref: "Product"
         },
         quantity: {
-            type: Number,
-            required: [true, 'Please add an password']
+            type: Array,
+            required: [true]
         },   
        
         status: {
                 type: String, 
-                enum: ['Pending', 'Active','Banned'],
+                enum: ['Pending', 'In Progress','Delivered'],
                 default: 'Pending'
               },
-        tottal_price: { 
+        total_price: { 
                 type: Number, 
-                unique: true
             },
     },
     {

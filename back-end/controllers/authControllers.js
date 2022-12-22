@@ -47,6 +47,7 @@ const login = async (req, res) => {
  
   // console.log(roles)
   res.json({ name: findUser.name, role_id: roles.name, token: storage("token") });
+  
 };
 
 const verifyEmail = async (req, res) => {
