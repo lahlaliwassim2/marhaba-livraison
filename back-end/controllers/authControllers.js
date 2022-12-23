@@ -43,7 +43,7 @@ const login = async (req, res) => {
     process.env.SECRET_TOCKEN
   );
   storage("token", token);
-  const roles = await Role.findOne({role_id:findUser.role_id})
+  const roles = await Role.findById(findUser.role_id)
  
   // console.log(roles)
   res.json({ name: findUser.name, role_id: roles.name, token: storage("token") });
