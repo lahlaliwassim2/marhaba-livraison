@@ -1,9 +1,12 @@
 const livreur = require("../models/User");
 const Role = require("../models/Role");
+const Ville = require("../models/Ville")
 const mailer = require("../middlewares/mailer");
 const bcrypt = require("bcryptjs");
 const Generate_password_secure = require("secure-random-password");
 const Storage = require("local-storage");
+const expressAsyncHandler = require("express-async-handler");
+const User = require("../models/User");
 
 
 const Addlivreur = async (req, res) => {
@@ -37,7 +40,16 @@ const Addlivreur = async (req, res) => {
   }
 };
 
+const getLivreur = async(req,res)=> 
+{
+  const role = await Role.findOne({ name: "livreur" })
+  const livreurs = await livreur.find({role_id : role._id})
+  const ville = await Ville.findOne({_id : livreurs.ville_id})
+  livreurs.ville = ville
+  res.send(livreurs)
+}
 
 
-module.exports = Addlivreur
+
+module.exports = {Addlivreur, getLivreur}
 
