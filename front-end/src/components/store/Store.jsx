@@ -23,7 +23,7 @@ useEffect(()=>{
     <h2>Store</h2>
     <Row   >
       {product.map((item)=>(
-        <Col key={item._id} className="m-3" >
+        <Col key={item.id} className="m-3" >
           <StoreItem  {...item} />
         </Col>
       ))}
