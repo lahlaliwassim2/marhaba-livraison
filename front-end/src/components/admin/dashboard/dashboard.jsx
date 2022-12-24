@@ -9,7 +9,7 @@ const Dashboard = () => {
       <div className='sidebar-container ' >
         <Sidbar />
       </div>
-      <div className='outlet-container'>
+      <div className='outlet-container d-flex flex-column m-auto '>
        <Outlet />
       </div>
 

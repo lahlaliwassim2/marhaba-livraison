@@ -3,6 +3,7 @@ import { Stack, Button } from "react-bootstrap";
 import { useShoppigCart } from "../../context/ShoppingCarteContext";
 import FormatCurrency from "../formatCurrency";
 import axios from "axios";
+
 const CartItem = ({ id, quantity }) => {
 const base_url = 'http://localhost:5000/images/';
   let [product,setProduct] = useState([])

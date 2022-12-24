@@ -1,3 +1,7 @@
 .sidebar{
     height: 100%;
 }
+
+.active {
+    background-color: #7ed957 !important;
+}
