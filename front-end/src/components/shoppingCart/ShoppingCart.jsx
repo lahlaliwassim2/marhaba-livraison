@@ -57,10 +57,10 @@ const ShoppingCart = ({ isOpen }) => {
           <div className="ms-auto fw-bold fs-5">
             Total{" "}
             {FormatCurrency(
-              cartItems.reduce((total, cartItem) => {
-                {/* const item = product.find((i) => i._id === cartItem.id); */}
-                {/* return total + (item?.price || 0) * cartItem.quantity;   */}
-              }, 0)
+              // cartItems.reduce((total, cartItem) => {
+              //   // {/* const item = product.find((i) => i._id === cartItem.id); */}
+              //   // {/* return total + (item?.price || 0) * cartItem.quantity;   */}
+              // }, 0)
             )}
           </div>
           <div>
