@@ -6,6 +6,7 @@ const categorieSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please add a name'],
         },
+
     
     },
     {
@@ -13,4 +14,4 @@ const categorieSchema = mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('Categorie', categorieSchema)
+module.exports = mongoose.model('categories', categorieSchema)

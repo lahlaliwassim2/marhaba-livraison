@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React , {useState,useEffect}from 'react'
 import Table from 'react-bootstrap/Table';
+import { Card } from "react-bootstrap";
 
+const base_url = 'http://localhost:5000/images/';
 
 const ShowProduct = () => {
-  // const base_url = 'http://localhost:5000/images/';
     let [product,setProduct] = useState([])
 
   useEffect(()=>{
@@ -19,7 +20,7 @@ const ShowProduct = () => {
   },[])
 
   return (
-    <div className='m-4 p-5 mx-auto'>
+    <div className='m-4 p-5 '>
     <Table striped  bordered hover>
       <thead>
         <tr>
@@ -31,13 +32,20 @@ const ShowProduct = () => {
         </tr>
       </thead>
       <tbody>
+      {product.map((item)=> 
         <tr>
-          <td></td>
-          <td></td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
+          <td> <Card.Img
+        variant="top"
+        src={base_url+item.image}
+        style={{ width: "100px" , objectFit: "cover" }}
+      /></td>
+          <td>{item.title}</td>
+          <td>{item.description}</td>
+          <td>{item.price},00 DHs</td>
+          <td>{item.categorie_name.name}</td>
         </tr>
+      )}
+       
       </tbody>
     </Table>
     </div>  )
