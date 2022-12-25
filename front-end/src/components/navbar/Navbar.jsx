@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useShoppigCart } from "../../context/ShoppingCarteContext";
 const Navbar = () => {
   const { openCart, cartQuantity } = useShoppigCart();
-  if(localStorage.getItem("role") === "client") {
+  if(localStorage.getItem("role") === 'client') {
     return (
       (<NavbarBs sticky="top" style={{'height': '10vh'}} className="bg-white shadow-sm"  >
         <Container>
@@ -58,7 +58,7 @@ const Navbar = () => {
         </Container>
       </NavbarBs>)
     );
-  }else if(localStorage.getItem("role") === "manager" || localStorage.getItem("role") === "livreur" ){
+  }else if(localStorage.getItem("role") === 'manager' || localStorage.getItem("role") === 'livreur' ){
     return console.log('im her hh wa miii')
   } 
  
