@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
+import addLivreur from "./AddLivreur"
 import './ShowLivreur.css';
 
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ShowLivreur = () => {
   const [livreurs, setLivreur] = useState([]);
@@ -37,7 +39,7 @@ const ShowLivreur = () => {
               />
             </label>
             <div className="col-4 d-flex align-items-center justify-content-end ">
-              <button className="addButton h-50 border rounded-2">Add Livreur</button>
+              <button className="addButton h-50 border rounded-2"><Link to="/dashboard/addLivreur"> Add Livreur </Link>   </button>
             </div>
           </div>
 
