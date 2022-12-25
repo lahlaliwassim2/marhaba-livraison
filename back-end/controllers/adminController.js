@@ -1,5 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const User = require('../models/User')
+const Role = require('../models/Role')
+const Ville = require('../models/Ville')
 
 //Get All Users
 const getAllUser = asyncHandler(async(req,res)=>{
@@ -57,8 +59,18 @@ const unblockUser = asyncHandler(async(req,res)=>{
     }
 })
 
+//getAllClient
+const getClients = async(req,res)=> 
+{
+  const role = await Role.findOne({ name: "client" })
+  const clients = await User.find({role_id : role._id})
+  const ville = await Ville.findOne({_id : clients.ville_id})
+  clients.ville = ville
+  res.send(clients)
+}
 module.exports = {
     getAllUser,
     blockUser,
-    unblockUser
+    unblockUser,
+    getClients
 }
