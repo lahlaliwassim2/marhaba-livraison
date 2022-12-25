@@ -15,6 +15,7 @@ import ShowClients from "./components/admin/clients/ShowClients";
 import Statistique from "./components/admin/statistique/Statistique";
 import ShowVille from "./components/admin/ville/ShowVille";
 import LivreurDash  from './components/livreur/dashboard.jsx'
+import AddLivreur from "./components/admin/livreur/AddLivreur";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}>
           
             <Route path="/dashboard/livreurs" element={<ShowLivreur/>}/>
+            <Route path="/dashboard/addLivreur" element={<AddLivreur/>}/>
             <Route path="/dashboard/orders" element={<ShowOrders/>}/>
             <Route path="/dashboard/products" element={<ShowProduct/>}/>
             <Route path="/dashboard/categories" element={<ShowCategorie/>}/>
