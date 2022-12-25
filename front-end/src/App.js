@@ -17,6 +17,9 @@ import LivreurDash from "./components/livreur/dashboard.jsx";
 import PrivateRoutes from "./components/PrivateRoute/PrivateRoutes";
 import Error from "./components/PrivateRoute/Error";
 import PrivateRole from "./components/PrivateRoute/PrivateRole";
+import AddProduct from "./components/admin/produit/AddProduct";
+import Statistic from "./components/admin/statistique/Statistique";
+import ShowVille from "./components/admin/ville/ShowVille";
 
 function App() {
   return (
@@ -43,21 +46,21 @@ function App() {
             <Route element={<PrivateRole role="livreur" />}>
               <Route path="/livreur/dashboard" element={<LivreurDash />} />
             </Route>
-
-            {/* Private Route Role Admin */}
             <Route element={<PrivateRole role="manager" />}>
-              <Route path="/dashboard" element={<Dashboard />}>
-                <Route path="/dashboard/livreurs" element={<ShowLivreur />} />
-                <Route path="/dashboard/orders" element={<ShowOrders />} />
-                <Route path="/dashboard/products" element={<ShowProduct />} />
-                <Route
-                  path="/dashboard/categories"
-                  element={<ShowCategorie />}
-                />
-                <Route path="/dashboard/clients" element={<ShowClients />} />
-                <Route path="/dashboard/statistic" element={<Statistique />} />
-              </Route>
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="/dashboard/livreurs" element={<ShowLivreur />} />
+              <Route path="/dashboard/orders" element={<ShowOrders />} />
+              <Route path="/dashboard/products" element={<ShowProduct />} />
+              <Route path="/dashboard/products/add" element={<AddProduct />} />
+              <Route path="/dashboard/categories" element={<ShowCategorie />} />
+              <Route path="/dashboard/clients" element={<ShowClients />} />
+              <Route path="/dashboard/statistic" element={<Statistic />} />
+              <Route index element={<Statistique />} />
+              <Route path="/dashboard/statistic" element={<Statistique />} />
+              <Route path="/dashboard/villes" element={<ShowVille />} />
             </Route>
+            </Route>
+
           </Route>
         </Routes>
       </div>
