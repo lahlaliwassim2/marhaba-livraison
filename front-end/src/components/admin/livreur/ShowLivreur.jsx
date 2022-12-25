@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
+import './ShowLivreur.css';
 
 import axios from "axios";
 
@@ -26,17 +27,17 @@ const ShowLivreur = () => {
             id="dataTable_filter"
             className="d-flex flex-row justify-content-evenly dataTables_filter flex-end mb-2 "
           >
-            <label className="col-5 ">
-              Search:
+            <label className="col-6 d-flex pt-4">
+              
               <input
                 type="search"
-                className="form-control form-control-s w-75 "
-                placeholder=""
+                className="form-control form-control-s w-75 h-75 "
+                placeholder="search"
                 aria-controls="dataTable"
               />
             </label>
-            <div className="col-5 d-flex align-items-center justify-content-end ">
-              <button className="h-50">Add Livreur</button>
+            <div className="col-4 d-flex align-items-center justify-content-end ">
+              <button className="addButton h-50 border rounded-2">Add Livreur</button>
             </div>
           </div>
 
