@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useShoppigCart } from "../../context/ShoppingCarteContext";
-// import PrivateRole from "../PrivateRoute/PrivateRole";
 const Navbar = () => {
   const { openCart, cartQuantity } = useShoppigCart();
   if(localStorage.getItem("role") === "client") {
