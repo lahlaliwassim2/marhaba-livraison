@@ -24,25 +24,22 @@ const ShowClients = () => {
         <div className="card shadow mb-4">
           <div
             id="dataTable_filter"
-            className="d-flex flex-row justify-content-evenly dataTables_filter flex-end mb-2 "
+            className="d-flex flex-row ps-5 dataTables_filter flex-end mb-2 "
           >
-            <label className="col-5 ">
-              Search:
+            <label className="col-7 d-flex pt-4">
               <input
                 type="search"
-                className="form-control form-control-s w-75 "
-                placeholder=""
+                className="form-control form-control-s w-75 h-75 "
+                placeholder="search"
                 aria-controls="dataTable"
               />
             </label>
-            <div className="col-5 d-flex align-items-center justify-content-end ">
-              <button className="h-50">Add Livreur</button>
-            </div>
+            
           </div>
 
           <div className="card-header py-3">
             <h6 className="m-0 font-weight-bold text-primary">
-              Mar7aba's Livreur
+              Mar7aba's Clients
             </h6>
           </div>
 
