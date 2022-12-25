@@ -3,6 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import { useShoppigCart } from "../../context/ShoppingCarteContext";
 import FormatCurrency from "../formatCurrency";
 const base_url = 'http://localhost:5000/images/';
+
 const StoreItem = ({ _id, title, price, image }) => {
   const {
     getItemQuantity,
