@@ -32,7 +32,7 @@ const AddNewProduct = async (req, res) => {
     }
   } else res.json("Please fill All Fields");
 };
-7
+7;
 const DeleteProduct = async (req, res) => {
   const { id } = req.params;
   try {
@@ -48,7 +48,6 @@ const DeleteProduct = async (req, res) => {
 };
 
 const UpdateProduct = async (req, res) => {
-
   const UpdatedProduct = {
     _id: req.params.id,
     title: req.body.title,
@@ -84,10 +83,22 @@ const UpdateProduct = async (req, res) => {
 };
 
 const GetAllProduct = asyncHandler(async (req, res) => {
-  const allProduct = await Product.find({});
+  const allProduct = await Product.aggregate([
+    {
+      $lookup: {
+        from: "categories",
+        localField: "cat_id",
+        foreignField: "_id",
+        as: "categorie_name",
+      },
+    },
+    {
+      $unwind: "$categorie_name",
+    },
+  ]);
+
   try {
-    if (allProduct) res.json({ allProduct });
-    else throw new Error("no product found");
+    if (allProduct) res.status(200).json(allProduct);
   } catch (error) {
     throw new Error(error);
   }
@@ -122,4 +133,3 @@ module.exports = {
   GetAllProduct,
   comentProduct,
 };
-
