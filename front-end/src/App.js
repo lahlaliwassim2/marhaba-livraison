@@ -20,7 +20,6 @@ import PrivateRole from "./components/PrivateRoute/PrivateRole";
 import AddProduct from "./components/admin/produit/AddProduct";
 import Statistic from "./components/admin/statistique/Statistique";
 import ShowVille from "./components/admin/ville/ShowVille";
-import AddLivreur from "./components/admin/livreur/AddLivreur";
 
 function App() {
   return (
