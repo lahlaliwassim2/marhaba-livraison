@@ -17,6 +17,7 @@ const adminRoute = require("./routes/adminRouter");
 const categorieRoute = require("./routes/CategorieRoute");
 const productRouter = require("./routes/ProductRoutes");
 const statisticRoute = require("./routes/statisticRoutes");
+const villeRoute = require("./routes/villeRoutes")
 app.use(require("./routes/livreurRoute"));
 app.use('/images' , express.static('images'))
 app.use("/api/auth", authRoute);
@@ -25,6 +26,7 @@ app.use("/api/admin", adminRoute);
 app.use("/api/categorie", categorieRoute);
 app.use("/api/product", productRouter);
 app.use("/api/statistic", statisticRoute);
+app.use("/api", villeRoute)
 
 app.use(require("./routes/CategorieRoute"));
 app.use(require("./routes/ProductRoutes"));

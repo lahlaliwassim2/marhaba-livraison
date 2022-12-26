@@ -13,9 +13,13 @@ const addVille = async (req, res) => {
       else throw new Error("not created")
     } catch (err) {
     throw new Error(err)
-    }
-
-    
+    }  
 }
 
-module.exports = { addVille }
+const showVille = async (req, res) => {
+  const allVille = await Ville.find({});
+  if (allVille) res.send({ allVille }) 
+  else res.json({msg : 'no cities data'});
+}
+
+module.exports = { addVille, showVille }
