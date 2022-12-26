@@ -19,7 +19,6 @@ const ShoppingCartProvider = ({ children }) => {
     0
   );
 
- 
 
   const openCart = () => {
     setIsOpen(true);
