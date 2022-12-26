@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const Navigate = useNavigate()
+  const Navigate = useNavigate({})
   const [user, setUser] = useState({});
   function handlChange(e) {
     const val = e.target.value;
@@ -24,10 +24,20 @@ const Login = () => {
       .post("http://localhost:5000/api/auth/login", user)
       .then((res) => {
         if(!res.data.token) toast.error(res.data, {position: toast.POSITION.TOP_RIGHT});
-        if(res.data.token){
-          localStorage.setItem('isConnected',res.data.token)
+        if(res.data.token || res.data.role_id ==='manager'){
+          localStorage.setItem('token',res.data.token)
+          localStorage.setItem('role',res.data.role_id)
+          Navigate('/dashboard')
+        }
+        if(res.data.role_id === 'client') {
           Navigate('/store')
         }
+        if(res.data.role_id === 'livreur') {
+          Navigate('/livreur/dashboard')
+        }
+
+
+        
       })
       .catch((error) => console.log(error));
   }

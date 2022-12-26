@@ -29,11 +29,6 @@ const Register = () => {
             position: toast.POSITION.TOP_RIGHT,
           });
         }
-
-        // console.log(res.data);
-       
-
-        // res.data?toast.error(res.data, {position: toast.POSITION.TOP_RIGHT }) : toast.error(res.message, {position: toast.POSITION.TOP_RIGHT })
       })
       .catch((error) => console.log(error));
   }

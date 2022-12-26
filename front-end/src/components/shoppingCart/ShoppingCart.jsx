@@ -57,10 +57,8 @@ const ShoppingCart = ({ isOpen }) => {
             Total{" "}
             {FormatCurrency(
               cartItems.reduce((total, cartItem) => {
-                /* A comment. */
-                /* It's finding the product in the product array that matches the cartItem.id. */
-                const item = product.find((i) => i._id === cartItem.id);
-                return total + (item?.price || 0) * cartItem.quantity;  
+                 const item = product.find((i) => i._id === cartItem.id); 
+                return total + (item?.price || 0) * cartItem.quantity;   
               }, 0)
             )}
           </div>
