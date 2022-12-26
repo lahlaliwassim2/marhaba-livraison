@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
-import { Card } from "react-bootstrap";
+import {  Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 const base_url = "http://localhost:5000/images/";
 
@@ -21,6 +23,12 @@ const ShowProduct = () => {
 
   return (
     <div className="m-4 p-5 ">
+      <Link to="/dashboard/products/add" className="sm-text mx-auto">
+                   
+                    <button className="btn btn-primary m-4 p-2">
+                      Create new Product 
+                    </button>
+                  </Link>
       <Table striped bordered hover>
         <thead>
           <tr>

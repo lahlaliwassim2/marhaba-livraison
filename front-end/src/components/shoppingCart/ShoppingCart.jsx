@@ -36,8 +36,7 @@ const ShoppingCart = ({ isOpen }) => {
   useEffect(()=>{
     axios.get('http://localhost:5000/api/product/product')
     .then((res)=>{
-      setProduct(res.data.allProduct)
-      console.log(res.data)
+      setProduct(res.data)
     })
     .catch((err)=>{
       console.log(err.msg)
@@ -58,8 +57,10 @@ const ShoppingCart = ({ isOpen }) => {
             Total{" "}
             {FormatCurrency(
               cartItems.reduce((total, cartItem) => {
-                {/* const item = product.find((i) => i._id === cartItem.id); */}
-                {/* return total + (item?.price || 0) * cartItem.quantity;   */}
+                /* A comment. */
+                /* It's finding the product in the product array that matches the cartItem.id. */
+                const item = product.find((i) => i._id === cartItem.id);
+                return total + (item?.price || 0) * cartItem.quantity;  
               }, 0)
             )}
           </div>
