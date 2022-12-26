@@ -6,7 +6,6 @@ import FormatCurrency from "../formatCurrency";
 import axios  from "axios";
 
 const ShoppingCart = ({ isOpen }) => {
-  const [chek , setChek] = useState([])
   
    useEffect(()=>{
 
@@ -14,7 +13,7 @@ const ShoppingCart = ({ isOpen }) => {
       const products =  JSON.parse(localStorage.getItem("shopping-cart"))
       console.log(products)
     }else{
-      console.log('erre')
+      console.log('error')
     }
   
    },[])
@@ -37,8 +36,7 @@ const ShoppingCart = ({ isOpen }) => {
   useEffect(()=>{
     axios.get('http://localhost:5000/api/product/product')
     .then((res)=>{
-      setProduct(res.data.allProduct)
-      console.log(res.data)
+      setProduct(res.data)
     })
     .catch((err)=>{
       console.log(err.msg)
@@ -59,8 +57,8 @@ const ShoppingCart = ({ isOpen }) => {
             Total{" "}
             {FormatCurrency(
               cartItems.reduce((total, cartItem) => {
-                const item = product.find((i) => i._id === cartItem.id);
-                return total + (item?.price || 0) * cartItem.quantity;
+                 const item = product.find((i) => i._id === cartItem.id); 
+                return total + (item?.price || 0) * cartItem.quantity;   
               }, 0)
             )}
           </div>

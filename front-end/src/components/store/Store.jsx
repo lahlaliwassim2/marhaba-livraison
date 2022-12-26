@@ -6,11 +6,11 @@ import axios from 'axios'
 
  
 const Store = () => {
-  let [product,setProduct] = useState([])
+  let [s,setProduct] = useState([])
 useEffect(()=>{
   axios.get('http://localhost:5000/api/product/product')
   .then((res)=>{
-    setProduct(res.data.allProduct)
+    setProduct(res.data)
     console.log(res.data)
   })
   .catch((err)=>{
@@ -20,13 +20,14 @@ useEffect(()=>{
   
   return (
     <>
-    <h2>Store</h2>
-    <Row   >
-      {product.map((item)=>(
-        <Col key={item.id} className="m-3" >
-          <StoreItem  {...item} />
+    <Row>
+    
+      {s.map((items)=>(
+        <Col key={items.id} className="m-3" >
+          <StoreItem  {...items} />
         </Col>
       ))}
+      
     </Row>
     </>
   )

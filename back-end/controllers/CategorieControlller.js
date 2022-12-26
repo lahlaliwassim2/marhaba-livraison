@@ -29,8 +29,17 @@ const DeleteCategorie = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+const GetAllCategories =async (req,res)=>{
+ const allCategories=await Categorie.find()
+  try {
+    if (allCategories) res.status(200).json(allCategories);
+  } catch (error) {
+    throw new Error(error);
+  }
+}
 
 module.exports = {
   AddNewCategorie,
   DeleteCategorie,
+  GetAllCategories
 };

@@ -19,8 +19,8 @@ const productSchema = mongoose.Schema(
             default: "default.jpg",
         },
         cat_id: {
-            type: Number,
-            required: [true, 'Please add a categorie '],
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "categories",
         },
         
         

@@ -11,7 +11,7 @@ const base_url = 'http://localhost:5000/images/';
   useEffect(()=>{
     axios.get('http://localhost:5000/api/product/product')
     .then((res)=>{
-      setProduct(res.data.allProduct)
+      setProduct(res.data)
       console.log(res.data)
     })
     .catch((err)=>{
