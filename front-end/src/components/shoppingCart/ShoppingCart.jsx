@@ -36,8 +36,7 @@ const ShoppingCart = ({ isOpen }) => {
   useEffect(()=>{
     axios.get('http://localhost:5000/api/product/product')
     .then((res)=>{
-      setProduct(res.data.allProduct)
-      console.log(res.data)
+      setProduct(res.data)
     })
     .catch((err)=>{
       console.log(err.msg)
@@ -57,10 +56,10 @@ const ShoppingCart = ({ isOpen }) => {
           <div className="ms-auto fw-bold fs-5">
             Total{" "}
             {FormatCurrency(
-              // cartItems.reduce((total, cartItem) => {
-              //   // {/* const item = product.find((i) => i._id === cartItem.id); */}
-              //   // {/* return total + (item?.price || 0) * cartItem.quantity;   */}
-              // }, 0)
+              cartItems.reduce((total, cartItem) => {
+                 const item = product.find((i) => i._id === cartItem.id); 
+                return total + (item?.price || 0) * cartItem.quantity;   
+              }, 0)
             )}
           </div>
           <div>
